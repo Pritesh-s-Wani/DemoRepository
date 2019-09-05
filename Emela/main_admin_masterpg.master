@@ -1,0 +1,80 @@
+﻿<%@ Master Language="VB" MasterPageFile="~/MainMasterPage.master" AutoEventWireup="false" CodeFile="main_admin_masterpg.master.vb" Inherits="main_admin_masterpg" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="script" Runat="Server">
+    <asp:ContentPlaceHolder ID="script" runat="server" ></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="header" Runat="Server">
+
+							<div class="clearfix"> </div>
+						 </div>
+						 <div class="header-right">
+							<div class="profile_details_left"><!--notifications of menu start -->
+								<ul class="nofitications-dropdown">
+									
+									<li class="dropdown head-dpdn">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-bell"></i><asp:Label ID="no_of_not1" runat="server" ></asp:Label></a>
+										<ul class="dropdown-menu">
+											<li>
+												<div class="notification_header">
+													<h3>You have <asp:Label ID="not_head_no" runat="server" ></asp:Label> notification</h3>
+												</div>
+											</li>
+											
+                                            <asp:Repeater ID="rptnotifocation" runat="server"  >
+                                               <%-- <HeaderTemplate >You have <asp:Label ID="not_head_no" runat="server" ></asp:Label> notification</HeaderTemplate>--%>
+                                                <ItemTemplate ><li class="odd"><a href="#">
+											  <asp:Label ForeColor="#757575" Font-Size="13px" ID="lblnotsub" runat="server"  >Sub.:<%#Eval("subject")%></asp:Label>
+                                                    <br /><asp:Label ForeColor="#979797" Font-Size="11px" ID="lblnotsender" runat="server"  >Sender.:<%#Eval("sender")%></asp:Label>
+											 </a></li></ItemTemplate>
+                                               
+                                                <FooterTemplate><asp:LinkButton Width="100%"  ID="lbtnaalnot"  runat="server" CssClass="notification_bottom" ForeColor="#6F6F6F" Font-Size="1em" >See all notifications</asp:LinkButton></FooterTemplate>
+                                            </asp:Repeater>
+											 
+											 
+										</ul>
+									</li>	
+									
+								</ul>
+								<div class="clearfix"> </div>
+							</div>
+                             <div class="profile_details">		
+								<ul>
+									<li class="dropdown profile_details_drop">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+											<div class="profile_img">	
+												<span class="prfil-img"><asp:Image ID="ppic" Height="50" Width="50" runat="server" /></span> 
+												<div class="user-name">
+													<p><asp:Label ID="uname" runat="server" ></asp:Label></p>
+													<span>Main-Administrator</span>
+												</div>
+												<i class="fa fa-angle-down lnr"></i>
+												<i class="fa fa-angle-up lnr"></i>
+												<div class="clearfix"></div>	
+											</div>	
+										</a>
+										<ul class="dropdown-menu drp-mnu">
+											 
+											<li> <asp:LinkButton ID="maidpath" runat="server" ><i class="fa fa-user"></i> Profile</asp:LinkButton> </li> 
+											<li> <a href="#"><i class="fa fa-sign-out"></i> Logout</a> </li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+</div>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="pageheader" Runat="Server">
+    <asp:ContentPlaceHolder ID="pgheader" runat="server" ></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="main" Runat="Server">
+    <asp:ContentPlaceHolder ID="main" runat="server" ></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="sidebar" Runat="Server">
+       <li id="menu-home" ><a href="index.html"><i class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
+		        <li><a href="#"><i class="fa fa-cogs"></i><span>Components</span><span class="fa fa-angle-right" style="float: right"></span></a>
+		          <ul>
+		            <li><a href="grids.html">Grids</a></li>
+		            <li><a href="portlet.html">Portlets</a></li>		            
+		          </ul>
+		        </li>
+		       
+</asp:Content>
